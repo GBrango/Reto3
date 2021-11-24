@@ -22,12 +22,12 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author gabriel
  */
 @RestController
-@RequestMapping("/api/Lib")
+@RequestMapping("/api")
 public class ControladorLib {
     
     @Autowired /**Inyectamos la dependencias*/
     LibServicios libServicios;
-    @GetMapping("/all")
+    @GetMapping("/Lib/all")
     public List<Lib> buscarTodosLosLibs() {
         return libServicios.buscarTodasLasLibraries();/**Retornamos todos las bibliotecas invocando el método buscarTodosLosLibs*/
     }
@@ -41,7 +41,7 @@ public class ControladorLib {
     }
     
     
-    @PostMapping("/save")
+    @PostMapping("/Lib/save")
     public ResponseEntity<?> guardar(@RequestBody Lib input) {
         libServicios.guardarLibrary(input);/**Este input recibe el cuerpo de los datos que se van a cargar*/
             return ResponseEntity.status(201).build();

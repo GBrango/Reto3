@@ -24,12 +24,12 @@ import org.springframework.web.bind.annotation.PutMapping;
  * @author gabriel
  */
 @RestController
-@RequestMapping("/api/Client")
+@RequestMapping("/api")
 public class ControladorClient {
     
     @Autowired /**Inyectamos la dependencias*/
     ClientServicios clientServicios;
-    @GetMapping("/all")
+    @GetMapping("/Client/all")
     public List<Client> buscarTodos() {
         return clientServicios.buscarTodos();/**Retornamos todos los usarios invocando el método buscarTodos*/
     }
@@ -38,12 +38,12 @@ public class ControladorClient {
     
     
     @GetMapping("/Client/{id}")
-    public Client getPorCedula(@PathVariable("id") Integer id) {
+    public Client getPorIDCliente(@PathVariable("id") Integer id) {
         return clientServicios.buscarPorId(id);
     }
     
     
-    @PostMapping("/save")
+    @PostMapping("/Client/save")
     public ResponseEntity<?> guardar(@RequestBody Client input) {
         clientServicios.guardarCliente(input);/**Este input recibe el cuerpo de los datos que se van a cargar*/
             return ResponseEntity.status(201).build();

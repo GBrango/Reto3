@@ -24,7 +24,7 @@ import lombok.Data;
  *
  * @author gabriel
  */
-@Data /**Condensamos la creacion de los constructores, Getter y Setter para evitar codigo*/
+/*@Data /**Condensamos la creacion de los constructores, Getter y Setter para evitar codigo*/
 @Entity
 @Table(name ="Client")
 public class Client implements Serializable {
@@ -42,6 +42,73 @@ public class Client implements Serializable {
     @Column(length = 3)
     private Integer age;
     
+    @ManyToOne
+    @JoinColumn(name="id_message")
+    @JsonIgnoreProperties({"client","lib","message"})
+    private Message message;
+    
+    @ManyToOne
+    @JoinColumn(name="id_reserva")
+    @JsonIgnoreProperties({"client","reservations"})
+    private Reservation reservations;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Message getMessage() {
+        return message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
+    }
+
+    public Reservation getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Reservation reservations) {
+        this.reservations = reservations;
+    }
+
    
+    
   
 }

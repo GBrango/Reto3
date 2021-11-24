@@ -52,8 +52,13 @@ public class Lib implements Serializable{
     
     @ManyToOne
     @JoinColumn(name="id_message")
-    @JsonIgnoreProperties({"lib"})
+    @JsonIgnoreProperties({"lib","client","reservations"})
     private Message message;    
+    
+    @ManyToOne
+    @JoinColumn(name="id_reserva")
+    @JsonIgnoreProperties({"lib","client","reservations"})
+    private Reservation reservations;
 
     public Integer getId() {
         return id;
@@ -110,11 +115,14 @@ public class Lib implements Serializable{
     public void setMessage(Message message) {
         this.message = message;
     }
-    
-    
-   
+
+    public Reservation getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Reservation reservations) {
+        this.reservations = reservations;
+    }
     
         
-   
-    
 }

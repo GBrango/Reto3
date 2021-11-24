@@ -24,12 +24,12 @@ import org.springframework.web.bind.annotation.PutMapping;
  * @author gabriel
  */
 @RestController
-@RequestMapping("/api/Category")
+@RequestMapping("/api")
 public class ControladorCategory {
     
     @Autowired /**Inyectamos la dependencias*/
     CategoryServicios categoriaServicios;
-    @GetMapping("/all")
+    @GetMapping("/Category/all")
     public List<Category> buscarTodasLasCategory() {
         return categoriaServicios.buscarTodasLasCategorias();/**Retornamos todass lass categorias invocando el método buscarTodasLasCategorias*/
     }
@@ -43,7 +43,7 @@ public class ControladorCategory {
     }
     
     
-    @PostMapping("/save")
+    @PostMapping("/Category/save")
     public ResponseEntity<?> guardarCategory(@RequestBody Category input) {
         categoriaServicios.guardarCategory(input);/**Este input recibe el cuerpo de los datos que se van a cargar*/
             return ResponseEntity.status(201).build();

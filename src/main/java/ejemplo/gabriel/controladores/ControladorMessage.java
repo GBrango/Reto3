@@ -23,24 +23,24 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author gabriel
  */
 @RestController
-@RequestMapping("/api/Message")
+@RequestMapping("/api")
 public class ControladorMessage {
     
    @Autowired /**Inyectamos la dependencias*/
     MessageServicios messageServicios;
-    @GetMapping("/all")
+    @GetMapping("/Message/all")
     public List<Message> buscarTodosLosMensajes() {
         return messageServicios.buscarTodosLosMensaje();/**Retornamos todos los usarios invocando el método buscarTodos*/
     }
     
     /**ok*/
         
-    @GetMapping("/Client/{id}")
+    @GetMapping("/Message/{id}")
     public Message getPorIdMensae(@PathVariable("id") Integer id) {
         return messageServicios.buscarPorIdMensajes(id);
     }
     
-    @PostMapping("/save")
+    @PostMapping("/Message/save")
     public ResponseEntity<?> guardarMensaje(@RequestBody Message input) {
         messageServicios.guardarMessage(input);/**Este input recibe el cuerpo de los datos que se van a cargar*/
             return ResponseEntity.status(201).build();

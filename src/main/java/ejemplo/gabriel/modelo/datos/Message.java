@@ -41,6 +41,10 @@ public class Message implements Serializable{
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "message")
     @JsonIgnoreProperties({"message"})
     public List<Lib> lib;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "message")
+    @JsonIgnoreProperties({"message","message"})
+    public List<Client> client;
 
     public Integer getId() {
         return id;
@@ -65,6 +69,17 @@ public class Message implements Serializable{
     public void setLib(List<Lib> lib) {
         this.lib = lib;
     }
+
+    public List<Client> getClient() {
+        return client;
+    }
+
+    public void setClient(List<Client> client) {
+        this.client = client;
+    }
+    
+
+   
     
     
 }
