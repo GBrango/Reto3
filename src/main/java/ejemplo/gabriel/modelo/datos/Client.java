@@ -22,7 +22,7 @@ import lombok.Data;
 
 /**
  *
- * @author gabriel
+ * @author gabriel ultima version para produccion
  */
 /*@Data /**Condensamos la creacion de los constructores, Getter y Setter para evitar codigo*/
 @Entity
