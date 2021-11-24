@@ -43,22 +43,19 @@ public class Lib implements Serializable{
     @Column(length = 100)
     private String description;
     /**LLaves foraneas*/
-    
-    @ManyToOne
-    @JoinColumn(name="id_category")
-    @JsonIgnoreProperties({"lib"})
-    private Category category;
+   
+   @ManyToOne
+   @JoinColumn(name="Category_id")
+   @JsonIgnoreProperties({"libs"})
+   private Category category;
+   
+   @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="lib")
+   @JsonIgnoreProperties({"lib"})
+   public List<Message> message;
 
-    
-    @ManyToOne
-    @JoinColumn(name="id_message")
-    @JsonIgnoreProperties({"lib","client","reservations"})
-    private Message message;    
-    
-    @ManyToOne
-    @JoinColumn(name="id_reserva")
-    @JsonIgnoreProperties({"lib","client","reservations"})
-    private Reservation reservations;
+   @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="lib")
+   @JsonIgnoreProperties({"lib"})
+   public List<Reservation> reservations;
 
     public Integer getId() {
         return id;
@@ -108,21 +105,22 @@ public class Lib implements Serializable{
         this.category = category;
     }
 
-    public Message getMessage() {
+    public List<Message> getMessage() {
         return message;
     }
 
-    public void setMessage(Message message) {
+    public void setMessage(List<Message> message) {
         this.message = message;
     }
 
-    public Reservation getReservations() {
+    public List<Reservation> getReservations() {
         return reservations;
     }
 
-    public void setReservations(Reservation reservations) {
+    public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-    
-        
+   
+   
+   
 }

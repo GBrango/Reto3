@@ -38,13 +38,15 @@ public class Message implements Serializable{
     private String messageText;
     /** POner FK de client_id*/
     
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "message")
-    @JsonIgnoreProperties({"message"})
-    public List<Lib> lib;
-    
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "message")
-    @JsonIgnoreProperties({"message","message"})
-    public List<Client> client;
+   @ManyToOne
+   @JoinColumn(name="Cliente_id")
+   @JsonIgnoreProperties({"message"}) 
+   private Client client;
+   
+   @ManyToOne
+   @JoinColumn(name="Lib_id")
+   @JsonIgnoreProperties({"message"})
+   private Lib lib;   
 
     public Integer getId() {
         return id;
@@ -62,24 +64,24 @@ public class Message implements Serializable{
         this.messageText = messageText;
     }
 
-    public List<Lib> getLib() {
-        return lib;
-    }
-
-    public void setLib(List<Lib> lib) {
-        this.lib = lib;
-    }
-
-    public List<Client> getClient() {
+    public Client getClient() {
         return client;
     }
 
-    public void setClient(List<Client> client) {
+    public void setClient(Client client) {
         this.client = client;
     }
-    
+
+    public Lib getLib() {
+        return lib;
+    }
+
+    public void setLib(Lib lib) {
+        this.lib = lib;
+    }
+
+   /**getter a setter*/
 
    
-    
-    
+   
 }

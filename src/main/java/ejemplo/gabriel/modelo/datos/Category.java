@@ -33,9 +33,9 @@ public class Category implements Serializable{
     private String description;
     /**FK*/
     
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
-    @JsonIgnoreProperties({"category"})
-    public List<Lib> lib;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="category")
+    @JsonIgnoreProperties({"category"})    
+    public List<Lib> libs;
 
     public Integer getId() {
         return id;
@@ -61,16 +61,16 @@ public class Category implements Serializable{
         this.description = description;
     }
 
-    public List<Lib> getLib() {
-        return lib;
+    public List<Lib> getLibs() {
+        return libs;
     }
 
-    public void setLib(List<Lib> lib) {
-        this.lib = lib;
+    public void setLibs(List<Lib> libs) {
+        this.libs = libs;
     }
-
     
     
+   
     /**Metodos getter and setter*/
     
 

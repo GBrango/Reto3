@@ -32,7 +32,7 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(length = 10)
-    private Integer id;
+    private Integer idClient;
     @Column(length = 60)
     private String name;
     @Column(length = 60, unique = true)
@@ -42,22 +42,17 @@ public class Client implements Serializable {
     @Column(length = 3)
     private Integer age;
     
-    @ManyToOne
-    @JoinColumn(name="id_message")
-    @JsonIgnoreProperties({"client","lib","message"})
-    private Message message;
     
-    @ManyToOne
-    @JoinColumn(name="id_reserva")
-    @JsonIgnoreProperties({"client","reservations"})
-    private Reservation reservations;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="client")
+    @JsonIgnoreProperties({"client", "message"})    
+    public List<Message> message;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdClient() {
+        return idClient;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
     }
 
     public String getName() {
@@ -92,23 +87,13 @@ public class Client implements Serializable {
         this.age = age;
     }
 
-    public Message getMessage() {
+    public List<Message> getMessage() {
         return message;
     }
 
-    public void setMessage(Message message) {
+    public void setMessage(List<Message> message) {
         this.message = message;
     }
 
-    public Reservation getReservations() {
-        return reservations;
-    }
-
-    public void setReservations(Reservation reservations) {
-        this.reservations = reservations;
-    }
-
-   
     
-  
 }

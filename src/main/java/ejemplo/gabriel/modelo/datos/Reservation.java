@@ -41,13 +41,11 @@ public class Reservation implements Serializable {
     private Date devolutionDate;
    /**LLaves foraneas*/
    
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "reservations")
-    @JsonIgnoreProperties({"reservations"})
-    public List<Lib> lib;
-
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "reservations")
-    @JsonIgnoreProperties({"reservations","message"})
-    public List<Client> client;
+   
+   @ManyToOne
+   @JoinColumn(name="Libr_id")
+   @JsonIgnoreProperties({"reservations"})
+   private Lib lib;
 
     public Integer getId() {
         return id;
@@ -73,21 +71,14 @@ public class Reservation implements Serializable {
         this.devolutionDate = devolutionDate;
     }
 
-    public List<Lib> getLib() {
+    public Lib getLib() {
         return lib;
     }
 
-    public void setLib(List<Lib> lib) {
+    public void setLib(Lib lib) {
         this.lib = lib;
     }
-
-    public List<Client> getClient() {
-        return client;
-    }
-
-    public void setClient(List<Client> client) {
-        this.client = client;
-    }
-    
+   
+   
     
 }
