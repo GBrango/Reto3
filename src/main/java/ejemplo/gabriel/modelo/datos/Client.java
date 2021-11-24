@@ -42,26 +42,6 @@ public class Client implements Serializable {
     @Column(length = 3)
     private Integer age;
     
-    
-    /**FK*/
-    /*@ManyToOne*/
-    /**@JoinColumn(name="message_id")*/
-   @OneToMany(mappedBy= "client", cascade = CascadeType.PERSIST)
-   @JsonIgnoreProperties({"client","library"})
-   private List<Message> messages; 
-    
-    /*private Message messages;*/
-    
-   /* @ManyToOne*/
-   /** @JoinColumn(name="resevation_id")*/
-  /* private Reservation reservation;*/
-   
-     
-    /**Evidamos recurrencia de datos*/  
-   @OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
-   @JsonIgnoreProperties({"library", "client"})
-   private List<Reservation> reservations;  /**Esta es la lista de reservaciones que me traigo sin recussividad por el JsonIgnore*/ 
-   
    
   
 }

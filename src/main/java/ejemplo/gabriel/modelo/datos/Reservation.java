@@ -36,21 +36,6 @@ public class Reservation implements Serializable {
     private Date startDate;
     private Date devolutionDate;
    /**LLaves foraneas*/
-    
-    @ManyToOne
-    @JoinColumn(name = "Lib_id")
-    private Lib library;
    
-    @OneToOne
-    private Category cartegory_id;
-    
-    @ManyToOne
-    @JoinColumn(name = "message_id")
-    private Message message;
-    
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
-    private Client client;   /**Nombre del objeto para llamar en el JsonIgnore*/
-        
     
 }

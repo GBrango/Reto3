@@ -25,7 +25,7 @@ import lombok.Data;
  *
  * @author gabriel
  */
-@Data /**Condensamos la creacion de los constructores, Getter y Setter para evitar codigo*/
+/**@Data /**Condensamos la creacion de los constructores, Getter y Setter para evitar codigo*/
 @Entity
 @Table(name ="Message")
 public class Message implements Serializable{
@@ -38,17 +38,33 @@ public class Message implements Serializable{
     private String messageText;
     /** POner FK de client_id*/
     
-    @ManyToOne
-    @JoinColumn(name="idLib")
-    private Lib library;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "message")
+    @JsonIgnoreProperties({"message"})
+    public List<Lib> lib;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getMessageText() {
+        return messageText;
+    }
+
+    public void setMessageText(String messageText) {
+        this.messageText = messageText;
+    }
+
+    public List<Lib> getLib() {
+        return lib;
+    }
+
+    public void setLib(List<Lib> lib) {
+        this.lib = lib;
+    }
     
-        
-    @ManyToOne
-    @JoinColumn(name="idClient")
-    private Client client;
     
-   /*@OneToMany(mappedBy= "Message", cascade = CascadeType.PERSIST)
-   @JsonIgnoreProperties({"Message","Reservation"})
-   private List<Client> listaClientes; 
-     */   
 }

@@ -19,13 +19,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import lombok.Data;
 
 /**
  *
  * @author gabriel
  */
-@Data /**Condensamos la creacion de los constructores, Getter y Setter para evitar codigo*/
+ /**Condensamos la creacion de los constructores, Getter y Setter para evitar codigo*/
 @Entity
 @Table(name ="Lib")
 public class Lib implements Serializable{
@@ -45,33 +44,77 @@ public class Lib implements Serializable{
     private String description;
     /**LLaves foraneas*/
     
-    /*@OneToOne
+    @ManyToOne
     @JoinColumn(name="id_category")
-    private Category categoria;*/
+    @JsonIgnoreProperties({"lib"})
+    private Category category;
+
+    
+    @ManyToOne
+    @JoinColumn(name="id_message")
+    @JsonIgnoreProperties({"lib"})
+    private Message message;    
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Message getMessage() {
+        return message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
+    }
+    
+    
+   
     
         
-   /** @ManyToOne
-    @JoinColumn(name="message_id")
-    private Message Message;*/
-    
-   /* @ManyToOne
-    @JoinColumn(name="reservation_id")
-    private Reservation Reservation;*/
-    /**
-     creamos la lista de reservaciones de acuerdo con los objetos creados a partir de las FK para evitar redundancia de datos
-     */
-  
-    /**cuando se borre este indica el deshacer*/
-    @OneToMany(mappedBy = "library", cascade = CascadeType.PERSIST)
-    @JsonIgnoreProperties({"library"})
-    private List<Message> messages;
-    
-    @OneToMany(mappedBy = "libs", cascade = CascadeType.PERSIST)
-    @JsonIgnoreProperties({"libs"})
-    private List<Category> category;
-      
-    @OneToMany(mappedBy = "library", cascade = CascadeType.PERSIST)
-    @JsonIgnoreProperties({"library"})
-    private List<Reservation> reservations;
+   
     
 }
