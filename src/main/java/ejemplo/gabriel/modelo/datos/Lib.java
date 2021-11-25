@@ -50,11 +50,11 @@ public class Lib implements Serializable{
    private Category category;
    
    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="lib")
-   @JsonIgnoreProperties({"lib"})
+   @JsonIgnoreProperties({"lib","client","reservations"})
    public List<Message> message;
 
    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="lib")
-   @JsonIgnoreProperties({"lib"})
+   @JsonIgnoreProperties({"lib", "category","client"})
    public List<Reservation> reservations;
 
     public Integer getId() {
@@ -120,7 +120,8 @@ public class Lib implements Serializable{
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-   
+
+    
    
    
 }

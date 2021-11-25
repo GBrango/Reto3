@@ -44,15 +44,20 @@ public class Reservation implements Serializable {
    
    @ManyToOne
    @JoinColumn(name="Libr_id")
-   @JsonIgnoreProperties({"reservations"})
+   @JsonIgnoreProperties({"reservations","lib","client"})
    private Lib lib;
+
+   @ManyToOne
+   @JoinColumn(name="Client_id")
+   @JsonIgnoreProperties({"client","reservations"})
+   private Client client;
 
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
-        this.id = id; 
+        this.id = id;
     }
 
     public Date getStartDate() {
@@ -78,7 +83,14 @@ public class Reservation implements Serializable {
     public void setLib(Lib lib) {
         this.lib = lib;
     }
-   
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
    
     
 }
