@@ -32,7 +32,7 @@ public class Lib implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(length = 10)
+    @Column(length = 12)
     private Integer id;
     @Column(length = 60)
     private String target;
