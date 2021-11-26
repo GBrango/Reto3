@@ -51,7 +51,7 @@ public class Lib implements Serializable{
    
    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="client")
    @JsonIgnoreProperties({"lib","client","category","reservations"})
-   public List<Message> message;
+   public List<Message> messages;
 
    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="lib")
    @JsonIgnoreProperties({"lib"})
@@ -105,12 +105,12 @@ public class Lib implements Serializable{
         this.category = category;
     }
 
-    public List<Message> getMessage() {
-        return message;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setMessage(List<Message> message) {
-        this.message = message;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
     public List<Reservation> getReservations() {
@@ -121,5 +121,5 @@ public class Lib implements Serializable{
         this.reservations = reservations;
     }
 
-      
+   
 }

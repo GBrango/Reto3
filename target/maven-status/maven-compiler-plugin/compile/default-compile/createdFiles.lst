@@ -11,6 +11,7 @@ ejemplo\gabriel\modelo\datos\Category.class
 ejemplo\gabriel\modelo\servicios\ClientServicios.class
 ejemplo\gabriel\modelo\datos\Score.class
 ejemplo\gabriel\EjemplaApiApplication.class
+ejemplo\gabriel\modelo\datos\Admin.class
 ejemplo\gabriel\modelo\servicios\CategoryServicios.class
 ejemplo\gabriel\modelo\crud\ClientCrudRepositorio.class
 ejemplo\gabriel\modelo\crud\CategoryCrudRepositorio.class
