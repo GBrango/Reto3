@@ -34,7 +34,7 @@ public class Category implements Serializable{
     /**FK*/
     
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="category")
-    @JsonIgnoreProperties({"category","reservations"})    
+    @JsonIgnoreProperties({"reservations"})    
     public List<Lib> libs;
 
     public Integer getId() {

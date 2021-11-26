@@ -35,11 +35,11 @@ public class Lib implements Serializable{
     @Column(length = 12)
     private Integer id;
     @Column(length = 60)
+    private String name;
+    @Column(length = 60)
     private String target;
     @Column(length = 100)
-    private Integer capacity;
-    @Column(length = 60)
-    private String name;
+    private Integer capacity;    
     @Column(length = 100)
     private String description;
     /**LLaves foraneas*/
@@ -49,12 +49,12 @@ public class Lib implements Serializable{
    @JsonIgnoreProperties({"libs"})
    private Category category;
    
-   @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="lib")
-   @JsonIgnoreProperties({"lib","client","reservations"})
+   @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="client")
+   @JsonIgnoreProperties({"lib","client","category","reservations"})
    public List<Message> message;
 
    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="lib")
-   @JsonIgnoreProperties({"lib", "category","client"})
+   @JsonIgnoreProperties({"lib"})
    public List<Reservation> reservations;
 
     public Integer getId() {
@@ -63,6 +63,14 @@ public class Lib implements Serializable{
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTarget() {
@@ -79,14 +87,6 @@ public class Lib implements Serializable{
 
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -121,7 +121,5 @@ public class Lib implements Serializable{
         this.reservations = reservations;
     }
 
-    
-   
-   
+      
 }

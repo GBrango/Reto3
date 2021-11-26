@@ -36,28 +36,34 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(length = 10)
-    private Integer id;
+    private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
+    
+    private String status="created";
+        
    /**LLaves foraneas*/
-   
-   
+           
    @ManyToOne
    @JoinColumn(name="Libr_id")
-   @JsonIgnoreProperties({"reservations","lib","client"})
+   @JsonIgnoreProperties({"reservations"})
    private Lib lib;
 
-   @ManyToOne
+  @ManyToOne
    @JoinColumn(name="Client_id")
-   @JsonIgnoreProperties({"client","reservations"})
+   @JsonIgnoreProperties({"messages","reservations"})
    private Client client;
 
-    public Integer getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name="score_id")
+    private Score score;
+
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -76,6 +82,14 @@ public class Reservation implements Serializable {
         this.devolutionDate = devolutionDate;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Lib getLib() {
         return lib;
     }
@@ -91,6 +105,15 @@ public class Reservation implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
-   
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
+    
+     
     
 }

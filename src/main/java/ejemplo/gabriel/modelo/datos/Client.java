@@ -22,7 +22,7 @@ import lombok.Data;
 
 /**
  *
- * @author gabriel ultima version para produccion
+ * @author gabriel ultima version para produccion 25/11/2021 at 09/:41 a.m
  */
 /*@Data /**Condensamos la creacion de los constructores, Getter y Setter para evitar codigo*/
 @Entity
@@ -42,14 +42,12 @@ public class Client implements Serializable {
     @Column(length = 3)
     private Integer age;
     
-    
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="client")
     @JsonIgnoreProperties({"client", "message","reservations"})    
-    public List<Message> message;
-    
-    
+    public List<Message> message; 
+       
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="client")
-    @JsonIgnoreProperties({"client","reservations"}) 
+    @JsonIgnoreProperties({"reservations","client","message"}) 
     public List<Reservation> reservations;
 
     public Integer getIdClient() {
