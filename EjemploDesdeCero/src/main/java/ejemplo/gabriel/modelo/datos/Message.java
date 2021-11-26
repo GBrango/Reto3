@@ -7,7 +7,6 @@ package ejemplo.gabriel.modelo.datos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,10 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import lombok.Data;
 
 /**
  *
@@ -33,27 +29,28 @@ public class Message implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(length = 10)
-    private Integer id;
+    private Integer idMessage;
     @Column(length = 100)
     private String messageText;
     /** POner FK de client_id*/
-    
-   @ManyToOne
-   @JoinColumn(name="Cliente_id")
-   @JsonIgnoreProperties({"message","reservation","client"}) 
-   private Client client;
+   
    
    @ManyToOne
    @JoinColumn(name="Lib_id")
-   @JsonIgnoreProperties({"message","reservation","client"})
+   @JsonIgnoreProperties({"message","reservations"})
    private Lib lib;   
 
-    public Integer getId() {
-        return id;
+   @ManyToOne
+   @JoinColumn(name="Cliente_id")
+   @JsonIgnoreProperties({"message","reservations"}) 
+   private Client client;
+
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
 
     public String getMessageText() {
@@ -64,14 +61,6 @@ public class Message implements Serializable{
         this.messageText = messageText;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
     public Lib getLib() {
         return lib;
     }
@@ -80,8 +69,17 @@ public class Message implements Serializable{
         this.lib = lib;
     }
 
-   /**getter a setter*/
+    public Client getClient() {
+        return client;
+    }
 
+    public void setClient(Client client) {
+        this.client = client;
+    }
    
+    
+
+   /**getter a setter*/
+  
    
 }
