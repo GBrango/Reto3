@@ -50,6 +50,22 @@ public class ControladorClient {
     }
     
     
+    /**El Put y el delete son para el reto4*/
+    /**Actualizado*/
+    @PutMapping("/Client/update")
+    public ResponseEntity<?> put(@RequestBody Client input) {
+      clientServicios.guardarCliente(input);
+       return ResponseEntity.status(201).build();
+    }
+    
+    /**Borrado*/
+    @DeleteMapping("/Client/{id}")
+    public void delete(@PathVariable("id")Integer id) {
+        clientServicios.borrarCliente(id);
+    } 
+     
+    
+    
     /**Aqui podemos llamar a los metodos personalizados de JPQL*/
     @GetMapping("/Client-nombre/{nombre}")
     public List<Client> mostrarPorNombre(@PathVariable String nombre){
@@ -76,17 +92,6 @@ public class ControladorClient {
     }
     
     
-    /**El Put y el delete son para el reto4*/
     
-   /** @PutMapping("/{id}")
-    public ResponseEntity<?> put(@PathVariable String id, @RequestBody Object input) {
-        return null;
-    }
-      
     
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable String id) {
-        return null;
-    }
-    */
 }

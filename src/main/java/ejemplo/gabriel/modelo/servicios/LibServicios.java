@@ -40,7 +40,17 @@ public class LibServicios {
      
     }
     
+     /**Nuevos métodos para el reto4*/
+    /**Borrado*/
+     public void borrarLibraries (Integer c){
+       repoLibrary.deleteById(c);
+    }
     
+      /**Actualizado*/
+     public Lib updateLib(Lib lb){
+     repoLibrary.findById(lb.getId());     
+     return lb;
+     }
     
     
 }

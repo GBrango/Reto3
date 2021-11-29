@@ -6,6 +6,7 @@
 package ejemplo.gabriel.modelo.servicios;
 
 import ejemplo.gabriel.modelo.crud.ClientCrudRepositorio;
+import ejemplo.gabriel.modelo.datos.Category;
 import ejemplo.gabriel.modelo.datos.Client;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,23 @@ public class ClientServicios {/**Creamos la logica de negocio del  hp reto3*/
      return repoClient.findById(clave).orElse(null);/**retornamos nulo, sino se encuentra el id*/
      
     }
+    
+     /**Nuevos métodos para el reto4*/
+    /**Borrado*/
+     public void borrarCliente (Integer clie){
+       repoClient.deleteById(clie);
+    }
+    
+     /**Actualizado*/
+     public Client updateClient(Client cl){
+     repoClient.findById(cl.getIdClient());     
+     return cl;
+     }
+    
+    
+    
+    
+    
     
     
     /**Usamos las consultas personalizadas para probar*/

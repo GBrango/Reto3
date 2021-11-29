@@ -40,4 +40,17 @@ public class ReservationServicios {
      
     }
     
+     /**Nuevos métodos para el reto4*/
+    /**Borrado*/
+     public void borrarReservacion (Integer c){
+       repoReservation.deleteById(c);
+    }
+     
+      
+      /**Actualizado*/
+     public Reservation updateReservation(Reservation res){
+     repoReservation.findById(res.getIdReservation());     
+     return res;
+     }
+     
 }

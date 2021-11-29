@@ -52,14 +52,17 @@ public class ControladorCategory {
        
     
     /**Estos metodos son para el reto4*/
-   /** @PutMapping("/{id}")
-    public ResponseEntity<?> put(@PathVariable String id, @RequestBody Object input) {
-        return null;
+    
+    /**Actualiza*/
+   @PutMapping("/Category/update")
+    public ResponseEntity<?> put(@RequestBody Category input) {
+      categoriaServicios.guardarCategory(input);
+       return ResponseEntity.status(201).build();
+    }
+    /**Borrado*/
+    @DeleteMapping("/Category/{id}")
+    public void delete(@PathVariable("id")Integer id) {
+        categoriaServicios.borrarCategory(id);
     }
     
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable String id) {
-        return null;
-    }
-    */
 }

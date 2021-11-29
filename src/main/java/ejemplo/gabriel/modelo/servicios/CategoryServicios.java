@@ -8,7 +8,9 @@ package ejemplo.gabriel.modelo.servicios;
 import ejemplo.gabriel.modelo.crud.CategoryCrudRepositorio;
 import ejemplo.gabriel.modelo.datos.Category;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 /**
@@ -39,5 +41,20 @@ public class CategoryServicios {
      return repoCategory.findById(clave).orElse(null);/**retornamos nulo, sino se encuentra el id*/
      
     }
+    
+    /**Nuevos métodos para el reto4*/
+    /**Borrado*/
+     public void borrarCategory (Integer c){
+       repoCategory.deleteById(c);
+    }
+    
+      /**Actualizado*/
+     
+     public Category updateCategoria(Category c){
+     repoCategory.findById(c.getId());     
+     return c;
+     }
+     
+    
     
 }

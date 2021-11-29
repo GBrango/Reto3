@@ -54,15 +54,16 @@ public class ControladorReservation {
     
     
     /**Estos metodos son del reto4*/
-    /**@PutMapping("/{id}")
-    public ResponseEntity<?> put(@PathVariable String id, @RequestBody Object input) {
-        return null;
+   @PutMapping("/Reservation/update")
+    public ResponseEntity<?> put(@RequestBody Reservation input) {
+      reservationServicios.guardarReservasion(input);
+       return ResponseEntity.status(201).build();
     }
     
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable String id) {
-        return null;
-    }
-    */
     
+    @DeleteMapping("/Reservation/{id}")
+    public void delete(@PathVariable("id")Integer id) {
+        reservationServicios.borrarReservacion(id);
+    }
+        
 }

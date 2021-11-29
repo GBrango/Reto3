@@ -6,6 +6,8 @@
 package ejemplo.gabriel.modelo.crud;
 
 import ejemplo.gabriel.modelo.datos.Category;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
