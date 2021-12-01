@@ -45,8 +45,9 @@ public class ClientServicios {/**Creamos la logica de negocio del  hp reto3*/
     
      /**Nuevos métodos para el reto4*/
     /**Borrado*/
-     public void borrarCliente (Integer clie){
-       repoClient.deleteById(clie);
+     public Client borrarTodosLosClientes (Client clie){
+       repoClient.deleteAll();
+       return clie;
     }
     
      /**Actualizado*/

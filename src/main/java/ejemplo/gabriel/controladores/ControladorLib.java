@@ -53,13 +53,15 @@ public class ControladorLib {
     /**Estos metdos son para el reto4*/
     @PutMapping("/Lib/update")
     public ResponseEntity<?> put(@RequestBody Lib input) {
-      libServicios.guardarLibrary(input);
+      libServicios.actualizarLib(input);
        return ResponseEntity.status(201).build();
     }
     
-    @DeleteMapping("/Lib/{id}")
-    public void delete(@PathVariable ("id") Integer id) {
-        libServicios.borrarLibraries(id);
+   
+    @DeleteMapping("/Lib/all")
+    public ResponseEntity<?> deleteLibrary(@RequestBody Lib lb) {
+        libServicios.borrarTodasLasLibraries(lb);
+         return ResponseEntity.status(201).build();
     }
   
 }

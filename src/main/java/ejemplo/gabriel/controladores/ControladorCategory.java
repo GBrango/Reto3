@@ -59,10 +59,12 @@ public class ControladorCategory {
       categoriaServicios.guardarCategory(input);
        return ResponseEntity.status(201).build();
     }
-    /**Borrado*/
-    @DeleteMapping("/Category/{id}")
-    public void delete(@PathVariable("id")Integer id) {
-        categoriaServicios.borrarCategory(id);
+   
+  /**Borrado*/
+    @DeleteMapping("/Category/all")
+    public ResponseEntity<?> deleteCategorias(@RequestBody Category cat) {
+        categoriaServicios.borrarTodasLasCategorias(cat);
+        return ResponseEntity.status(201).build();
     }
     
 }

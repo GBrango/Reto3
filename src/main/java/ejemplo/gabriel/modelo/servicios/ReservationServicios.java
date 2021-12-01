@@ -39,11 +39,12 @@ public class ReservationServicios {
      return repoReservation.findById(clave).orElse(null);/**retornamos nulo, sino se encuentra el id*/
      
     }
-    
-     /**Nuevos métodos para el reto4*/
+  
+   /**Nuevos métodos para el reto4*/
     /**Borrado*/
-     public void borrarReservacion (Integer c){
-       repoReservation.deleteById(c);
+     public Reservation borrarReservaciones (Reservation res){
+       repoReservation.deleteAll();
+       return res;
     }
      
       

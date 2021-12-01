@@ -44,9 +44,12 @@ public class CategoryServicios {
     
     /**Nuevos métodos para el reto4*/
     /**Borrado*/
-     public void borrarCategory (Integer c){
-       repoCategory.deleteById(c);
-    }
+     public Category borrarTodasLasCategorias(Category body){
+    
+        repoCategory.deleteAll();
+        
+        return body;
+     }
     
       /**Actualizado*/
      
