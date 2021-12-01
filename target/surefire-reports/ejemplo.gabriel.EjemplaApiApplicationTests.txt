@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: ejemplo.gabriel.EjemplaApiApplicationTests
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.447 s - in ejemplo.gabriel.EjemplaApiApplicationTests
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.291 s - in ejemplo.gabriel.EjemplaApiApplicationTests
+>>>>>>> df35751a226eb2923334d92e98664197903a6530
