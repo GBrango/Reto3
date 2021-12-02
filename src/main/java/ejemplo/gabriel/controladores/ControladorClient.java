@@ -62,8 +62,9 @@ public class ControladorClient {
     
      /**Borrado*/
      @DeleteMapping("/Client/{id}")
-      public void delete(@PathVariable("id")Integer id) {
+      public ResponseEntity delete(@PathVariable("id")Integer id) {
       clientServicios.borrarCliente(id);
+      return ResponseEntity.status(204).build();
      } 
      
     

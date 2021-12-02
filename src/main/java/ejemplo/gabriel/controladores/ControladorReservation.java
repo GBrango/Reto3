@@ -65,8 +65,9 @@ public class ControladorReservation {
     
     
     @DeleteMapping("/Reservation/{id}")
-    public void delete(@PathVariable("id")Integer id) {
+    public ResponseEntity delete(@PathVariable("id")Integer id) {
      reservationServicios.borrarReservacion(id);
+     return ResponseEntity.status(204).build();
    }
         
 }

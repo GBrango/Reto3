@@ -64,9 +64,10 @@ public class ControladorCategory {
     }
    
    /**Borrado*/
-  @DeleteMapping("/Category/{id}")
-  public void delete(@PathVariable("id")Integer id) {
+     @DeleteMapping("/Category/{id}")
+      public ResponseEntity delete(@PathVariable("id")Integer id) {
       categoriaServicios.borrarCategory(id);
+       return ResponseEntity.status(204).build();
   }
     
 }
