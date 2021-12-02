@@ -26,8 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins="*",methods={RequestMethod.GET,RequestMethod.POST,
-                                  RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins="*", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 
 public class ControladorCategory {
     
@@ -52,8 +51,7 @@ public class ControladorCategory {
         categoriaServicios.guardarCategory(input);/**Este input recibe el cuerpo de los datos que se van a cargar*/
             return ResponseEntity.status(201).build();
     }
-    
-       
+          
     
     /**Estos metodos son para el reto4*/
     

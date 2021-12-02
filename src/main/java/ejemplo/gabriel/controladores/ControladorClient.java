@@ -26,8 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins="*",methods={RequestMethod.GET,RequestMethod.POST,
-                                  RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins="*", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class ControladorClient {
     
     @Autowired /**Inyectamos la dependencias*/

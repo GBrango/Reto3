@@ -5,7 +5,6 @@
  */
 package ejemplo.gabriel.controladores;
 
-import ejemplo.gabriel.modelo.datos.Client;
 import ejemplo.gabriel.modelo.datos.Message;
 import ejemplo.gabriel.modelo.servicios.MessageServicios;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,8 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins="*",methods={RequestMethod.GET,RequestMethod.POST,
-                                  RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins="*", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class ControladorMessage {
     
    @Autowired /**Inyectamos la dependencias*/
