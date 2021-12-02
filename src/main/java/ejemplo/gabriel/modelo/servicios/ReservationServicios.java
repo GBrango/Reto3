@@ -41,10 +41,9 @@ public class ReservationServicios {
     }
   
    /**Nuevos métodos para el reto4*/
-    /**Borrado*/
-     public Reservation borrarReservaciones (Reservation res){
-       repoReservation.deleteAll();
-       return res;
+   /**Borrado*/
+    public void borrarReservacion (Integer c){
+    repoReservation.deleteById(c);
     }
      
       

@@ -42,10 +42,11 @@ public class MessageServicios {
     
      /**Nuevos métodos para el reto4*/
     /**Borrado*/
-     public Message borrarMensajes(Message ms){
-       repoMessage.deleteAll();
-       return ms;
-    }
+      /**Borrado*/
+     public void borrarMensajes(Integer c){
+     repoMessage.deleteById(c);
+     }
+  
     
       /**Actualizado*/
      public Message updateMessage(Message ms){

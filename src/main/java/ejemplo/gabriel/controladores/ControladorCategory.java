@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  *
  * @author gabriel
@@ -62,11 +63,10 @@ public class ControladorCategory {
        return ResponseEntity.status(201).build();
     }
    
-  /**Borrado*/
-    @DeleteMapping("/Category/all")
-    public ResponseEntity<?> deleteCategorias(@RequestBody Category cat) {
-        categoriaServicios.borrarTodasLasCategorias(cat);
-        return ResponseEntity.status(201).build();
-    }
+   /**Borrado*/
+  @DeleteMapping("/Category/{id}")
+  public void delete(@PathVariable("id")Integer id) {
+      categoriaServicios.borrarCategory(id);
+  }
     
 }

@@ -61,10 +61,9 @@ public class ControladorLib {
     }
     
    
-    @DeleteMapping("/Lib/all")
-    public ResponseEntity<?> deleteLibrary(@RequestBody Lib lb) {
-        libServicios.borrarTodasLasLibraries(lb);
-         return ResponseEntity.status(201).build();
+     @DeleteMapping("/Lib/{id}")
+     public void delete(@PathVariable ("id") Integer id) {
+     libServicios.borrarLibraries(id);
     }
   
 }

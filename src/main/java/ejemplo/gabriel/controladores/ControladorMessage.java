@@ -63,9 +63,9 @@ public class ControladorMessage {
     }
     
      /**Borrar*/
-    @DeleteMapping("/Message/all")
-     public ResponseEntity<?> deleteMessage(@RequestBody Message ms) {
-        messageServicios.borrarMensajes(ms);
-        return ResponseEntity.status(201).build();
+    @DeleteMapping("/Message/{id}")
+     public void delete(@PathVariable ("id") Integer id) {
+      messageServicios.borrarMensajes(id); 
+   
     }
 }

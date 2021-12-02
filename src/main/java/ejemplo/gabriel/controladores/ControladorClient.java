@@ -60,12 +60,11 @@ public class ControladorClient {
        return ResponseEntity.status(201).build();
     }
     
-   /**Borrado de todos los Clientes*/
-    @DeleteMapping("/Client/all")
-    public ResponseEntity<?> deleteClientes (@RequestBody Client clie) {
-        clientServicios.borrarTodosLosClientes(clie);
-        return ResponseEntity.status(201).build();
-    } 
+     /**Borrado*/
+     @DeleteMapping("/Client/{id}")
+      public void delete(@PathVariable("id")Integer id) {
+      clientServicios.borrarCliente(id);
+     } 
      
     
     

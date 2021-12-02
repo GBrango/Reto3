@@ -5,7 +5,6 @@ ejemplo\gabriel\modelo\datos\Message.class
 ejemplo\gabriel\controladores\ControladorCategory.class
 ejemplo\gabriel\modelo\servicios\ReservationServicios.class
 ejemplo\gabriel\modelo\datos\Client.class
-com\mac\SeguridadAdapter\SeguridadAdapter.class
 ejemplo\gabriel\controladores\ControladorMessage.class
 ejemplo\gabriel\modelo\crud\ReservationCrudRepositorio.class
 ejemplo\gabriel\modelo\datos\Category.class

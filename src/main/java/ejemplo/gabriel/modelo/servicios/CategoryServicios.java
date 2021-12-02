@@ -19,45 +19,54 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CategoryServicios {
-    
+
     @Autowired
     CategoryCrudRepositorio repoCategory;
-            
-    /**Guardado*/
-    public void guardarCategory (Category categoria){
-    
+
+    /**
+     * Guardado
+     */
+    public void guardarCategory(Category categoria) {
+
         repoCategory.save(categoria);
     }
-    /**Consulta*/
-    public List<Category> buscarTodasLasCategorias(){
-    
+
+    /**
+     * Consulta
+     */
+    public List<Category> buscarTodasLasCategorias() {
+
         return (List<Category>) repoCategory.findAll();
     }
-    
-    /**Consultanos por ID*/
-    
-    public Category buscarPorIdCategoria (Integer clave){
-    
-     return repoCategory.findById(clave).orElse(null);/**retornamos nulo, sino se encuentra el id*/
-     
+
+    /**
+     * Consultanos por ID
+     */
+    public Category buscarPorIdCategoria(Integer clave) {
+
+        return repoCategory.findById(clave).orElse(null);
+        /**
+         * retornamos nulo, sino se encuentra el id
+         */
+
     }
-    
-    /**Nuevos métodos para el reto4*/
-    /**Borrado*/
-     public Category borrarTodasLasCategorias(Category body){
-    
-        repoCategory.deleteAll();
-        
-        return body;
-     }
-    
-      /**Actualizado*/
-     
-     public Category updateCategoria(Category c){
-     repoCategory.findById(c.getId());     
-     return c;
-     }
-     
-    
-    
+
+    /**
+     * Nuevos métodos para el reto4
+     */
+    /**
+     * Borrado
+     */
+    public void borrarCategory(Integer c) {
+        repoCategory.deleteById(c);
+    }
+
+    /**
+     * Actualizado
+     */
+    public Category updateCategoria(Category c) {
+        repoCategory.findById(c.getId());
+        return c;
+    }
+
 }
